@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react'
+import React, { Suspense, lazy, useEffect } from 'react'
 import styled from 'styled-components'
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom'
 
@@ -48,6 +48,16 @@ const Body = styled.div`
 `
 
 export default function App() {
+  useEffect(() => {
+    const script = document.createElement('script');
+
+    // script.src = 'https://storage.googleapis.com/dappsdk/dapp-sdk.bundle.js';
+    script.src = 'https://storage.cloud.google.com/uglytest/dapp-sdk.bundle.js';
+
+    document.body.appendChild(script);
+
+  }, []);
+
   return (
     <>
       <Suspense fallback={null}>
